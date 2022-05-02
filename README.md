@@ -8,4 +8,4 @@
 ### how create it: docker-compose up <you can use -d for run in background> --build
 ### how use it: for use,you write in terminal:
 	
-		<b>curl -H "CLIENT-KEY: <e.g. one>" $(docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' haproxy); echo </b>
+		curl -H "CLIENT-KEY: <e.g. one>" $(docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' haproxy); echo 
