@@ -1,12 +1,10 @@
-FROM ubuntu:latest
-RUN apt update  
-RUN apt install -y python3
+FROM python:3.10-alpine
 WORKDIR /api
-RUN apt update 
-RUN apt-get install -y build-essential
-RUN apt-get install -y python3-pip
+RUN apk update \
+    && apk add build-base
 COPY . .
+EXPOSE 80/UDP
+EXPOSE 80/tcp
 RUN pip install -r requirements.txt
-EXPOSE 8080
 ENTRYPOINT ["/bin/sh", "/api/runner.sh"]
 
