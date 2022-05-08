@@ -18,7 +18,7 @@ class bcolors:
 def execute():
     os.chdir(os.getcwd())
     os.system("docker-compose rm -fs")
-    os.system("docker-compose  up -d --build")
+    os.system("docker-compose  up -d ")
     ip_haproxy =subprocess.check_output(["docker", "inspect", "-f", "'{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}'", "haproxy"])
     
     check_nginx =os.system(' '.join(["service","--status-all", "|", "grep", "nginx"]))
