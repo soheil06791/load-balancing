@@ -13,18 +13,18 @@ services:
       - server4
 
   server1:
-    image: api:latest
+    image: api:v1.0.0
     container_name: api1
 
   server2:
-    image: api:latest
+    image: api:v1.0.0
     container_name: api2
 
   server3:
-    image: api:latest
+    image: api:v1.0.0
     container_name: api3
 
   server4:
-    image: api:latest
+    image: api:v1.0.0
     container_name: api4
    
