@@ -16,8 +16,9 @@ class bcolors:
     UNDERLINE = '\033[4m'
 
 def execute():
-    os.chdir(os.getcwd())
+    os.chdir(os.path.split(os.path.abspath(__file__))[0])
     os.system("docker-compose rm -fs")
+    os.system("docker build -t api:v1.0.0 ./api")
     os.system("docker-compose  up -d ")
     ip_haproxy =subprocess.check_output(["docker", "inspect", "-f", "'{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}'", "haproxy"])
     
