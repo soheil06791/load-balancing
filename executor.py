@@ -17,6 +17,10 @@ class bcolors:
 
 def execute():
     os.chdir(os.path.split(os.path.abspath(__file__))[0])
+    check_version = subprocess.check_output(["bash","check.sh"]).decode().split(" ")
+    if check_version[1] <= "20.10.0":
+        print(f"{bcolors.WARNING}docker version is lower of 20.10.0{bcolors.ENDC}")
+        return
     os.system("docker-compose rm -fs")
     os.system("docker build -t api:v1.0.0 ./api")
     os.system("docker-compose  up -d ")
